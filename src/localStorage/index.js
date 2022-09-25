@@ -1,6 +1,6 @@
 export function storeItem(name, payload) {
   if (!name || typeof payload !== "object") {
-    console.log("You are not send me what I need!");
+    console.log("You have not sent me what I need!");
     return;
   }
 

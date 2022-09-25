@@ -10,7 +10,7 @@ import {
   SEND_MESSAGE,
   ADD_CONTACT,
   DELETE_CONTACT,
-  SET_LOADING,
+  BLOCK_CONTACT,
 } from "./types";
 import { generateRandomId } from "../utils";
 
@@ -18,9 +18,9 @@ export function reducer(state = getItem("store") || initialState, action) {
   switch (action.type) {
     case DELETE_CONTACT: {
       //defensive check
-      if (!user.friends) return state;
-
       const user = { ...state.user };
+
+      if (!user.friends) return state;
 
       const indexOfFriend = user.friends.findIndex(
         (item) => item.id === action.payload.id
@@ -41,13 +41,33 @@ export function reducer(state = getItem("store") || initialState, action) {
       const friends = user.friends ? user.friends : [];
 
       //check if already a friend, if so return with no change
-      if (friends.includes(action.payload)) {
+      if (friends.includes(action.payload.id)) {
         return state;
       }
 
-      friends.push(action.payload);
+      friends.push(action.payload.id);
 
       user.friends = friends;
+
+      const newState = { ...state, user };
+
+      storeItem("store", newState);
+
+      return newState;
+    }
+
+    case BLOCK_CONTACT: {
+      const user = { ...state.user };
+
+      const blocked = user.blocked ? user.blocked : [];
+
+      if (blocked.includes(action.payload)) {
+        return state;
+      }
+
+      blocked.push(action.payload);
+
+      user.blocked = blocked;
 
       const newState = { ...state, user };
 
@@ -68,6 +88,7 @@ export function reducer(state = getItem("store") || initialState, action) {
       const user = {
         id: generateRandomId(64),
         userName: action.payload,
+        blocked: [2, 6],
       };
 
       const newState = { ...state, user, screenMode: 4 };

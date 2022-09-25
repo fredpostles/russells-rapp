@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Naviation from "./Navigation";
+import Navigation from "./Navigation";
 import SearchBar from "./Search/SearchBar";
 import Results from "./Search/Results";
 import { useSelector } from "react-redux";
@@ -21,7 +21,7 @@ const Search = () => {
   return (
     <>
       Search
-      <Naviation />
+      <Navigation />
       <SearchBar setSearchTerm={setSearchTerm} />
       {results.length > 0 ? (
         <Results results={results} />

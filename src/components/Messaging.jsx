@@ -1,11 +1,11 @@
 import React from "react";
-import Naviation from "./Navigation";
+import Navigation from "./Navigation";
 
 const Messaging = () => {
   return (
     <>
       Messaging
-      <Naviation />
+      <Navigation />
     </>
   );
 };

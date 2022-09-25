@@ -9,9 +9,7 @@ const User = ({ result }) => {
     <>
       <h1>{result.userName}</h1>
       <img src={result.image} alt={result.image} />
-      <button
-        onClick={() => dispatch({ type: ADD_CONTACT, payload: result.id })}
-      >
+      <button onClick={() => dispatch({ type: ADD_CONTACT, payload: result })}>
         Add friend
       </button>
     </>
