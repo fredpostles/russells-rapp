@@ -11,6 +11,9 @@ import {
   ADD_CONTACT,
   DELETE_CONTACT,
   BLOCK_CONTACT,
+  SET_CURRENT_USER,
+  SET_USER_MESSAGES,
+  SET_ALL_USERS,
 } from "./types";
 import { generateRandomId } from "../utils";
 
@@ -151,6 +154,24 @@ export function reducer(state = getItem("store") || initialState, action) {
 
       storeItem("store", newState);
 
+      return newState;
+    }
+
+    case SET_CURRENT_USER: {
+      const newState = { ...state, user: action.payload };
+      storeItem("store", newState);
+      return newState;
+    }
+
+    case SET_ALL_USERS: {
+      const newState = { ...state, allUsers: action.payload };
+      storeItem("store", newState);
+      return newState;
+    }
+
+    case SET_USER_MESSAGES: {
+      const newState = { ...state, messages: action.payload };
+      storeItem("store", newState);
       return newState;
     }
 

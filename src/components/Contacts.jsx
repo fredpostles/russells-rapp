@@ -9,6 +9,11 @@ const Contacts = () => {
   const allUsers = useSelector((state) => state.allUsers);
   const user = useSelector((state) => state.user);
 
+  // remove blocked from friends
+  const friends = user.friends.filter((contact) => {
+    return !user.blocked.includes(contact);
+  });
+
   const results = allUsers.filter((contact) => {
     // if blocked, don't show in contacts
     if (user.blocked && user.blocked.includes(contact.id)) return;
@@ -17,7 +22,7 @@ const Contacts = () => {
       return contact.userName.toLowerCase().includes(searchTerm.toLowerCase());
     }
 
-    return user.friends.includes(contact.id);
+    return friends.includes(contact.id);
   });
 
   return (

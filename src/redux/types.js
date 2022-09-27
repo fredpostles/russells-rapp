@@ -13,3 +13,8 @@ export const SET_SCREEN_MODE = "SET_SCREEN_MODE";
 export const ADD_USER = "ADD_USER";
 export const UPDATE_USER = "UPDATE_USER";
 export const DELETE_USER = "DELETE_USER"; // terminate account
+
+// actions as result of api calls
+export const SET_ALL_USERS = "SET_ALL_USERS";
+export const SET_CURRENT_USER = "SET_CURRENT_USER";
+export const SET_USER_MESSAGES = "SET_USER_MESSAGES";

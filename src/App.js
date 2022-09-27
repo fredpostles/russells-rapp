@@ -4,6 +4,7 @@ import Interface from "./components/Interface";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { SET_SCREEN_MODE } from "./redux/types";
+import { DataController } from "./controllers";
 
 const App = () => {
   const [loading, setLoading] = useState(true); //local state
@@ -21,6 +22,10 @@ const App = () => {
     setTimeout(() => {
       setLoading(false);
     }, 2000);
+
+    // get initial data
+    // const _dataController = new DataController();
+    // _dataController.init();
   }, []);
 
   return (
