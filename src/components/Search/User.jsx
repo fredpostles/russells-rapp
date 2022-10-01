@@ -7,8 +7,8 @@ const User = ({ result }) => {
 
   return (
     <>
-      <h1>{result.userName}</h1>
-      <img src={result.image} alt={result.image} />
+      <h1>{result.username}</h1>
+      <img src={result.image} alt={result.username} />
       <button onClick={() => dispatch({ type: ADD_CONTACT, payload: result })}>
         Add friend
       </button>

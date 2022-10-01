@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { SET_SCREEN_MODE } from "./redux/types";
 import { DataController } from "./controllers";
+import "./App.css";
 
 const App = () => {
   const [loading, setLoading] = useState(true); //local state

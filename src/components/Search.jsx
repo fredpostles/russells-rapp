@@ -13,7 +13,7 @@ const Search = () => {
     //if already a friend
     if (user.friends && user.friends.includes(potentialFriend.id)) return;
 
-    return potentialFriend.userName
+    return potentialFriend.username
       .toLowerCase()
       .includes(searchTerm.toLowerCase());
   });

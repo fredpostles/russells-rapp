@@ -17,12 +17,13 @@ const Contacts = () => {
   const results = allUsers.filter((contact) => {
     // if blocked, don't show in contacts
     if (user.blocked && user.blocked.includes(contact.id)) return;
+
     // if search term entered, show matching contacts
     if (searchTerm) {
-      return contact.userName.toLowerCase().includes(searchTerm.toLowerCase());
+      return contact.username.toLowerCase().includes(searchTerm.toLowerCase());
     }
 
-    return friends.includes(contact.id);
+    return user.friends.includes(contact.id);
   });
 
   return (

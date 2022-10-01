@@ -5,6 +5,7 @@ export const BLOCK_CONTACT = "BLOCK_CONTACT";
 
 export const SEND_MESSAGE = "SEND_MESSAGE";
 export const DELETE_MESSAGE = "DELETE MESSAGE";
+export const SET_FOREIGN_USER = "SET_FOREIGN_USER";
 
 export const SET_SEARCH_TERM = "SET_SEARCH_TERM";
 

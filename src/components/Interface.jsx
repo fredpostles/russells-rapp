@@ -3,7 +3,6 @@ import Contacts from "./Contacts";
 import { useSelector } from "react-redux";
 import Messaging from "./Messaging";
 import Search from "./Search";
-import Startup from "./Startup";
 import Onboarding from "./Onboarding";
 
 const Interface = () => {

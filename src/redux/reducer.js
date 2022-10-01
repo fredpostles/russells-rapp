@@ -8,6 +8,7 @@ import {
   SET_SEARCH_TERM,
   DELETE_MESSAGE,
   SEND_MESSAGE,
+  SET_FOREIGN_USER,
   ADD_CONTACT,
   DELETE_CONTACT,
   BLOCK_CONTACT,
@@ -89,8 +90,8 @@ export function reducer(state = getItem("store") || initialState, action) {
 
     case ADD_USER: {
       const user = {
-        id: generateRandomId(64),
-        userName: action.payload,
+        id: 0,
+        username: action.payload,
         blocked: [2, 6],
       };
 
@@ -104,7 +105,7 @@ export function reducer(state = getItem("store") || initialState, action) {
     case UPDATE_USER: {
       const user = { ...state.user };
 
-      user.userName = action.payload.userName;
+      user.username = action.payload.userName;
 
       const newState = { ...state, user };
 
@@ -154,6 +155,12 @@ export function reducer(state = getItem("store") || initialState, action) {
 
       storeItem("store", newState);
 
+      return newState;
+    }
+
+    case SET_FOREIGN_USER: {
+      const newState = { ...state, foreignUser: action.payload };
+      storeItem("store", newState);
       return newState;
     }
 
